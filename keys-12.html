@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Screen</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #1f2430; font-family: "Segoe UI", system-ui, sans-serif; }
+  .stage { min-height: 100%; display: flex; align-items: flex-start; justify-content: center; }
+  /* Full size so the text stays readable; a short window scrolls instead of shrinking the screenshot. */
+  img { width: min(100vw, 1280px); height: auto; display: block; }
+  .note { position: fixed; left: 16px; bottom: 16px; max-width: 340px; padding: 10px 14px; border-radius: 8px;
+           background: #ffffff; color: #111827; font-size: 15px; line-height: 1.35;
+           box-shadow: 0 4px 16px rgba(0, 0, 0, .35); }
+</style>
+</head>
+<body>
+<div class="stage"><img src="img/keys-12.png" alt="Screenshot of a settings screen with one area highlighted"></div>
+<div class="note">Look at the highlighted area of the screen, and answer the following questions.</div>
+<script>
+  // Bring the highlighted area to the middle of the window.
+  const img = document.querySelector("img");
+  const center = () => window.scrollTo(0, img.clientHeight * 0.3011 - window.innerHeight / 2);
+  img.complete ? center() : img.addEventListener("load", center);
+  window.addEventListener("resize", center);
+</script>
+</body>
+</html>
